@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Présentation - pages web pour commerces</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; font-family: Arial, sans-serif; }
+  .slide { display: none; height: 100%; padding: 8vw; flex-direction: column; justify-content: center; gap: 4vh; }
+  .slide.active { display: flex; }
+  .dark { background: #0f2a43; color: #fbfaf7; }
+  .light { background: #fbfaf7; color: #0f2a43; }
+  .yellow { background: #f2b705; color: #0f2a43; }
+  h1 { font-size: 9vw; margin: 0; }
+  h2 { font-size: 7vw; margin: 0; }
+  p, li { font-size: 4.5vw; line-height: 1.5; margin: 0; }
+  ul { padding-left: 5vw; margin: 0; }
+  .prix { display: flex; gap: 3vw; flex-wrap: wrap; }
+  .prix div { flex: 1; min-width: 40%; background: #14314d; padding: 3vw; border-radius: 12px; }
+  .prix b { display: block; font-size: 7vw; color: #f2b705; }
+  #nav { position: fixed; bottom: 16px; left: 0; right: 0; display: flex; justify-content: center; gap: 16px; }
+  button { font-size: 20px; padding: 10px 22px; border: 0; border-radius: 999px; background: #f2b705; color: #0f2a43; }
+</style>
+</head>
+<body>
+
+<section class="slide dark active">
+  <h1>Votre commerce mérite une page web</h1>
+  <p style="color:#f2b705">Prête en 2 jours, à partir de 20 $</p>
+  <p>[Ton nom], créateur de pages web</p>
+</section>
+
+<section class="slide light">
+  <h2>Vos clients vous cherchent sur leur téléphone</h2>
+  <ul>
+    <li>Ils veulent voir votre menu ou vos prix</li>
+    <li>Ils veulent savoir où vous êtes</li>
+    <li>Ils veulent vous écrire sur WhatsApp en un clic</li>
+  </ul>
+</section>
+
+<section class="slide dark">
+  <h2>Ce que je crée pour vous</h2>
+  <ul>
+    <li>Une page claire sur téléphone</li>
+    <li>Votre menu, vos prix, vos photos</li>
+    <li>Un bouton WhatsApp</li>
+    <li>Votre adresse et vos horaires</li>
+  </ul>
+</section>
+
+<section class="slide light">
+  <h2>Un exemple pour un restaurant</h2>
+  <p>Chez Mama Nzuzi, Kinshasa : menu, prix et commande par WhatsApp.</p>
+  <p>Voir la page : [lien de ta page]</p>
+</section>
+
+<section class="slide dark">
+  <h2>Des prix simples</h2>
+  <div class="prix">
+    <div>Page simple<b>20 $</b></div>
+    <div>Page complète<b>30 $</b></div>
+    <div>Sur mesure<b>45 $</b></div>
+  </div>
+  <p>Moitié à la commande, moitié à la livraison.</p>
+</section>
+
+<section class="slide yellow">
+  <h2>Commençons cette semaine</h2>
+  <p>WhatsApp : [+243 987 775 231]</p>
+</section>
+
+<div id="nav">
+  <button onclick="go(-1)">Précédent</button>
+  <button onclick="go(1)">Suivant</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let i = 0;
+  function go(n) {
+    slides[i].classList.remove('active');
+    i = Math.max(0, Math.min(slides.length - 1, i + n));
+    slides[i].classList.add('active');
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+</script>
+</body>
+</html>
